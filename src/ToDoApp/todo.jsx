@@ -19,6 +19,8 @@ const ToDoApp = () => {
             className="input-field"
             placeholder="Start time (e.g. 3pm)"
           />
+
+          <button className="add-button">Add</button>
         </div>
       </header>
     </main>
