@@ -18,7 +18,7 @@ const TodoList = ({ data }) => {
           onClick={() => toggleCompleted(todo.id)}
           className="toggle-button"
         >
-          {todo.completed ? "Undo" : "Complete"}
+          {todo.completed ? "Undo" : "Completed"}
         </button>
         <button onClick={() => deleteTodo(todo.id)} className="delete-button">
           Delete

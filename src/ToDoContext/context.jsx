@@ -20,6 +20,8 @@ export const ToDoContextHandler = ({ children }) => {
     };
 
     setTodos([...todos, newTodo]);
+    setTodoTitle("");
+    setTodoTime("")
   };
 
   const toggleShowCompleted = () => {
