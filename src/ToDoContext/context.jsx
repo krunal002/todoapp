@@ -22,9 +22,22 @@ export const ToDoContextHandler = ({ children }) => {
     setTodos([...todos, newTodo]);
   };
 
-  const toggleCompleted = () => {
+  const toggleShowCompleted = () => {
     setShowCompleted(!showCompleted);
   };
+
+  const toggleCompleted = (toggleId) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === toggleId ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
+  const deleteTodo = (deleteId) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== deleteId));
+  };
+
   return (
     <ToDoContext.Provider
       value={{
@@ -36,7 +49,9 @@ export const ToDoContextHandler = ({ children }) => {
         setTodoTitle,
         setTodoTime,
         addTodo,
+        toggleShowCompleted,
         toggleCompleted,
+        deleteTodo,
       }}
     >
       {children}

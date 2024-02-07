@@ -1,0 +1,143 @@
+/* TodoApp.css */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.todo-app {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+h2 {
+  padding: 8px;
+  text-align: center;
+  color: #333;
+}
+
+.add-todo {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-button {
+  padding: 10px;
+  font-size: 14px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  transition: background-color 0.3s;
+}
+
+.todo-item:hover {
+  background-color: #e0f7fa;
+}
+
+.completed {
+  background-color: #c8e6c9;
+}
+.completed p {
+  text-decoration: line-through;
+}
+
+.todo-text {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.todo-time {
+  margin: 0;
+  font-size: 14px;
+  color: #777;
+}
+
+.actions {
+  display: flex;
+  gap: 5px;
+}
+
+.toggle-button,
+.delete-button {
+  padding: 8px;
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.toggle-button {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.toggle-completed {
+  margin-top: 20px;
+}
+
+.checkbox {
+  margin-top: 2px;
+}
+
+.todo-footer {
+  position: fixed;
+  min-width: 200px;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #4caf50;
+  color: #fff;
+  overflow: hidden;
+}
+.todo-footer a {
+  text-decoration: none;
+  margin: 0 24px;
+  color: #e0f7fa;
+}
+.todo-footer a:hover {
+  color: #c6f4fa;
+}

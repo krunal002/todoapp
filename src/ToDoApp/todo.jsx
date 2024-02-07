@@ -1,7 +1,12 @@
+import "./todo.css";
 import { useContext } from "react";
 import { ToDoContext } from "../ToDoContext/context";
 import CheckboxLabel from "../Component/checkbox";
 import TextInput from "../Component/textInput";
+import TodoList from "../Component/todoList";
+
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const ToDoApp = () => {
   const {
@@ -12,13 +17,13 @@ const ToDoApp = () => {
     setTodoTime,
     addTodo,
     showCompleted,
-    toggleCompleted,
+    toggleShowCompleted,
   } = useContext(ToDoContext);
 
   return (
-    <main>
+    <main className="todo-app">
       <header>
-        <h1>ToDo App </h1>
+        <h2>ToDo App </h2>
       </header>
 
       <section>
@@ -42,20 +47,37 @@ const ToDoApp = () => {
         </div>
 
         <div className="todo-list">
-          {todos
-            .filter((todo) => (showCompleted ? true : !todo.completed))
-            .map((todo) => (
-              <p>{todo.title}</p>
-            ))}
+          <TodoList
+            data={todos.filter((todo) =>
+              showCompleted ? true : !todo.completed
+            )}
+          />
         </div>
 
         <div className="toggle-completed">
           <CheckboxLabel
             label={"Show Completed"}
-            clickFunction={toggleCompleted}
+            clickFunction={toggleShowCompleted}
           />
         </div>
       </section>
+
+      <footer className="todo-footer">
+        <a
+          href="https://github.com/krunal002"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <GitHubIcon fontSize="large"/>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/krunal-mandlekar-106b95299"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <LinkedInIcon fontSize="large"/>
+        </a>
+      </footer>
     </main>
   );
 };
