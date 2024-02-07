@@ -11,7 +11,11 @@ export const ToDoContextHandler = ({ children }) => {
   const [showCompleted, setShowCompleted] = useState(false);
 
   const addTodo = () => {
-    // console.log(todoTitle, todoTime);
+    if (todoTitle.trim() === "" || todoTime.trim() === "") {
+      alert("Fill all the fields!");
+      return;
+    }
+
     const newTodo = {
       id: Date.now(),
       title: todoTitle,
@@ -21,7 +25,7 @@ export const ToDoContextHandler = ({ children }) => {
 
     setTodos([...todos, newTodo]);
     setTodoTitle("");
-    setTodoTime("")
+    setTodoTime("");
   };
 
   const toggleShowCompleted = () => {

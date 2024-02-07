@@ -11,12 +11,17 @@ body {
 
 .todo-app {
   max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
   margin: auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: relative;
+}
+::-webkit-scrollbar {
+  width: 0;
 }
 
 h2 {
