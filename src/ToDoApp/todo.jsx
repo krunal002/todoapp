@@ -1,9 +1,19 @@
 import { useContext } from "react";
 import { ToDoContext } from "../ToDoContext/context";
+import CheckboxLabel from "../Component/checkbox";
+import TextInput from "../Component/textInput";
 
 const ToDoApp = () => {
-  const { todos, todoTitle, setTodoTitle, todoTime, setTodoTime, addTodo } =
-    useContext(ToDoContext);
+  const {
+    todos,
+    todoTitle,
+    setTodoTitle,
+    todoTime,
+    setTodoTime,
+    addTodo,
+    showCompleted,
+    toggleCompleted,
+  } = useContext(ToDoContext);
 
   return (
     <main>
@@ -13,23 +23,16 @@ const ToDoApp = () => {
 
       <section>
         <div className="add-todo">
-          <input
-            type="text"
-            name="title"
-            id="title"
-            className="input-field"
-            placeholder="Add new task..."
+          <TextInput
+            name={"title"}
             value={todoTitle}
+            placeholder={"Add new task..."}
             onChange={(e) => setTodoTitle(e.target.value)}
           />
-
-          <input
-            type="text"
-            name="time"
-            id="time"
-            className="input-field"
-            placeholder="Start time (e.g. 3pm)"
+          <TextInput
+            name={"time"}
             value={todoTime}
+            placeholder={"Start time (e.g. 3pm)"}
             onChange={(e) => setTodoTime(e.target.value)}
           />
 
@@ -39,9 +42,18 @@ const ToDoApp = () => {
         </div>
 
         <div className="todo-list">
-          {todos.map((todo) => (
-            <p>{todo.title}</p>
-          ))}
+          {todos
+            .filter((todo) => (showCompleted ? true : !todo.completed))
+            .map((todo) => (
+              <p>{todo.title}</p>
+            ))}
+        </div>
+
+        <div className="toggle-completed">
+          <CheckboxLabel
+            label={"Show Completed"}
+            clickFunction={toggleCompleted}
+          />
         </div>
       </section>
     </main>
