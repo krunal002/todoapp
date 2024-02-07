@@ -1,4 +1,4 @@
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 import "./todo.css";
 import { useContext } from "react";
 import { ToDoContext } from "../ToDoContext/context";
@@ -26,7 +26,7 @@ const ToDoApp = () => {
       <header>
         <h2>mark Your ToDo</h2>
       </header>
-<ToastContainer/>
+      <ToastContainer />
 
       <section>
         <div className="add-todo">
@@ -70,14 +70,14 @@ const ToDoApp = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <GitHubIcon fontSize="large"/>
+          <GitHubIcon fontSize="large" />
         </a>
         <a
           href="https://www.linkedin.com/in/krunal-mandlekar-106b95299"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <LinkedInIcon fontSize="large"/>
+          <LinkedInIcon fontSize="large" />
         </a>
       </footer>
     </main>

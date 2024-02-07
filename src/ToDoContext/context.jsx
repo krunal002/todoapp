@@ -1,9 +1,8 @@
-import {  toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { createContext, useState } from "react";
 export const ToDoContext = createContext();
-
 
 export const ToDoContextHandler = ({ children }) => {
   const [todoTitle, setTodoTitle] = useState("");
@@ -14,18 +13,8 @@ export const ToDoContextHandler = ({ children }) => {
   ]);
   const [showCompleted, setShowCompleted] = useState(false);
 
-  const notifyError = () => toast.error('Fill All The Fields!', {
-    position: "top-center",
-    autoClose: 1000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "colored",
-    });
-
-    const notifySuccess = () => toast.info('ToDo Added!', {
+  const notifyError = () =>
+    toast.warning("Fill All The Fields!", {
       position: "top-center",
       autoClose: 1000,
       hideProgressBar: false,
@@ -34,7 +23,31 @@ export const ToDoContextHandler = ({ children }) => {
       draggable: true,
       progress: undefined,
       theme: "colored",
-      });
+    });
+
+  const notifySuccess = () =>
+    toast.info("ToDo Added!", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
+  const notifyDelete = () =>
+    toast.error("ToDo Deleted!", {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
 
   const addTodo = () => {
     if (todoTitle.trim() === "" || todoTime.trim() === "") {
@@ -70,6 +83,7 @@ export const ToDoContextHandler = ({ children }) => {
 
   const deleteTodo = (deleteId) => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== deleteId));
+    notifyDelete();
   };
 
   return (
