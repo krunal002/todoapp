@@ -1,3 +1,4 @@
+import { ToastContainer } from 'react-toastify';
 import "./todo.css";
 import { useContext } from "react";
 import { ToDoContext } from "../ToDoContext/context";
@@ -23,8 +24,9 @@ const ToDoApp = () => {
   return (
     <main className="todo-app">
       <header>
-        <h2>ToDo App </h2>
+        <h2>mark Your ToDo</h2>
       </header>
+<ToastContainer/>
 
       <section>
         <div className="add-todo">

@@ -1,5 +1,9 @@
+import {  toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { createContext, useState } from "react";
 export const ToDoContext = createContext();
+
 
 export const ToDoContextHandler = ({ children }) => {
   const [todoTitle, setTodoTitle] = useState("");
@@ -10,9 +14,32 @@ export const ToDoContextHandler = ({ children }) => {
   ]);
   const [showCompleted, setShowCompleted] = useState(false);
 
+  const notifyError = () => toast.error('Fill All The Fields!', {
+    position: "top-center",
+    autoClose: 1000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+    });
+
+    const notifySuccess = () => toast.info('ToDo Added!', {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
+
   const addTodo = () => {
     if (todoTitle.trim() === "" || todoTime.trim() === "") {
-      alert("Fill all the fields!");
+      // alert("Fill all the fields!");
+      notifyError();
       return;
     }
 
@@ -26,6 +53,7 @@ export const ToDoContextHandler = ({ children }) => {
     setTodos([...todos, newTodo]);
     setTodoTitle("");
     setTodoTime("");
+    notifySuccess();
   };
 
   const toggleShowCompleted = () => {
